@@ -1,0 +1,117 @@
+{
+  "$schema": "https://smithery.ai/schema/smithery.json",
+  "name": "travel-agent-mcp-server",
+  "displayName": "Travel Agent MCP Server",
+  "description": "Transform your LLM into a professional AI travel agent with comprehensive tools for flight searches, hotel bookings, activity recommendations, itinerary creation, and booking assistance.",
+  "version": "1.0.0",
+  "author": "Travel Agent MCP",
+  "license": "MIT",
+  "homepage": "https://github.com/iclickfreedownloads/travel-agent-mcp-server",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iclickfreedownloads/travel-agent-mcp-server.git"
+  },
+  "keywords": [
+    "travel",
+    "flights",
+    "hotels",
+    "booking",
+    "itinerary",
+    "vacation",
+    "trip-planning",
+    "activities",
+    "maps",
+    "travel-agent"
+  ],
+  "categories": [
+    "travel",
+    "productivity",
+    "planning"
+  ],
+  "icon": "✈️",
+  "mcp": {
+    "command": "node",
+    "args": ["build/index.js"],
+    "env": {
+      "GOOGLE_MAPS_API_KEY": {
+        "description": "Google Maps API key for location search and directions",
+        "required": false,
+        "default": ""
+      },
+      "AMADEUS_API_KEY": {
+        "description": "Amadeus API key for flight searches",
+        "required": false,
+        "default": ""
+      },
+      "AMADEUS_API_SECRET": {
+        "description": "Amadeus API secret for flight searches",
+        "required": false,
+        "default": ""
+      },
+      "RAPIDAPI_KEY": {
+        "description": "RapidAPI key for hotel and activity searches",
+        "required": false,
+        "default": ""
+      },
+      "OPENWEATHER_API_KEY": {
+        "description": "OpenWeatherMap API key for weather information",
+        "required": false,
+        "default": ""
+      },
+      "EXCHANGERATE_API_KEY": {
+        "description": "ExchangeRate-API key for currency conversion",
+        "required": false,
+        "default": ""
+      }
+    }
+  },
+  "capabilities": {
+    "tools": true,
+    "prompts": true,
+    "resources": false
+  },
+  "prompts": [
+    {
+      "name": "travel_agent_mode",
+      "description": "Activate Travel Agent Mode - transforms the LLM into a professional travel consultant"
+    }
+  ],
+  "tools": [
+    {
+      "name": "search_location",
+      "description": "Search for locations, destinations, and attractions with coordinates and addresses"
+    },
+    {
+      "name": "get_directions",
+      "description": "Get directions and routes between two locations"
+    },
+    {
+      "name": "search_hotels",
+      "description": "Search for hotels with pricing, ratings, and amenities"
+    },
+    {
+      "name": "search_flights",
+      "description": "Search for flights with schedules, pricing, and booking links"
+    },
+    {
+      "name": "find_activities",
+      "description": "Discover activities, tours, and things to do at destinations"
+    },
+    {
+      "name": "create_itinerary",
+      "description": "Create comprehensive travel itineraries"
+    },
+    {
+      "name": "add_to_cart",
+      "description": "Generate booking URLs and instructions for travel items"
+    },
+    {
+      "name": "get_travel_tips",
+      "description": "Get visa, weather, currency, and cultural information"
+    },
+    {
+      "name": "calculate_trip_budget",
+      "description": "Calculate estimated trip budgets by category"
+    }
+  ]
+}

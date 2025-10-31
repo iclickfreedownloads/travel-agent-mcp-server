@@ -16,12 +16,22 @@
     "agent",
     "hotels",
     "flights",
-    "booking"
+    "booking",
+    "trip-planning",
+    "itinerary"
   ],
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iclickfreedownloads/travel-agent-mcp-server.git"
+  },
+  "homepage": "https://github.com/iclickfreedownloads/travel-agent-mcp-server#readme",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.0.4"
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "dotenv": "^16.4.7"
   },
   "devDependencies": {
     "@types/node": "^22.10.1",

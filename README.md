@@ -43,15 +43,30 @@ Activate "travel agent mode" to fundamentally transform the LLM's workflow into 
 
 ## 🚀 Installation
 
-### Prerequisites
+### Option 1: Install via Smithery (Recommended)
+
+The easiest way to install this MCP server is through [Smithery](https://smithery.ai):
+
+```bash
+npx -y @smithery/cli install travel-agent-mcp-server
+```
+
+This will automatically:
+- Install the server
+- Configure it in your MCP client
+- Set up environment variables
+
+### Option 2: Manual Installation
+
+#### Prerequisites
 - Node.js 18 or higher
 - npm or yarn
 
-### Setup
+#### Setup Steps
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/travel-agent-mcp-server.git
+git clone https://github.com/iclickfreedownloads/travel-agent-mcp-server.git
 cd travel-agent-mcp-server
 ```
 
@@ -60,9 +75,58 @@ cd travel-agent-mcp-server
 npm install
 ```
 
-3. Build the project:
+3. Set up API keys (see [API Keys Setup](#-api-keys-setup) below):
+```bash
+cp .env.example .env
+# Edit .env and add your API keys
+```
+
+4. Build the project:
 ```bash
 npm run build
+```
+
+## 🔑 API Keys Setup
+
+This server works in multiple modes:
+
+### Mode 1: Mock Data (No API keys needed)
+Perfect for testing! The server uses realistic mock data for all searches.
+
+### Mode 2: Free APIs (Recommended)
+Get free API keys for best results:
+
+| Service | Purpose | Free Tier | Get API Key |
+|---------|---------|-----------|-------------|
+| **Google Maps** | Location search | $200/month credit | [Get Key](https://console.cloud.google.com/) |
+| **Amadeus** | Flight search | 2,000 calls/month | [Get Key](https://developers.amadeus.com/) |
+| **RapidAPI** | Hotels & activities | 100-500/month | [Get Key](https://rapidapi.com/) |
+| **OpenWeather** | Weather info | 1,000 calls/day | [Get Key](https://openweathermap.org/api) |
+| **ExchangeRate-API** | Currency | 1,500/month | [Get Key](https://www.exchangerate-api.com/) |
+
+**Quick Setup:**
+1. Copy the example environment file:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Edit `.env` and add your API keys:
+   ```env
+   GOOGLE_MAPS_API_KEY=your_key_here
+   AMADEUS_API_KEY=your_key_here
+   AMADEUS_API_SECRET=your_secret_here
+   RAPIDAPI_KEY=your_key_here
+   OPENWEATHER_API_KEY=your_key_here
+   ```
+
+3. Restart the server
+
+**📚 For detailed API setup instructions, see [API_KEYS.md](./API_KEYS.md)**
+
+### Mode 3: Web Scraping Fallback
+Enable web scraping for when APIs aren't available:
+```env
+ENABLE_WEB_SCRAPING=true
 ```
 
 ## 📝 Configuration
